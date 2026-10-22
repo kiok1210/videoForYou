@@ -1,0 +1,32 @@
+{
+  "name": "videoforyou",
+  "productName": "VideoForYou",
+  "version": "0.1.1",
+  "description": "桌面录屏 + 系统声音/麦克风 + 特效滤镜与贴图，用来演示自己的桌面工具",
+  "main": "./out/main/index.js",
+  "author": "VideoForYou",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "start": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "icon": "node scripts/make-icon.mjs",
+    "dist": "node scripts/make-icon.mjs && electron-vite build && electron-builder --win --x64",
+    "dist:dir": "node scripts/make-icon.mjs && electron-vite build && electron-builder --win --x64 --dir"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.17",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^2.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11"
+  }
+}

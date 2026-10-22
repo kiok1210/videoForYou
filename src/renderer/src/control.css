@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+}
+
+body.is-control {
+  background: transparent;
+  font-family: 'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif;
+  color: #eef2f8;
+  overflow: hidden;
+  user-select: none;
+  -webkit-app-region: drag;
+}
+
+.ctl {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  padding: 8px 10px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(22, 25, 34, 0.96), rgba(12, 14, 20, 0.96));
+  border: 1px solid rgba(120, 132, 160, 0.28);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.2s ease;
+}
+
+.ctl.is-paused {
+  border-color: rgba(255, 186, 74, 0.6);
+}
+
+.ctl.is-busy {
+  opacity: 0.72;
+}
+
+.ctl button {
+  -webkit-app-region: no-drag;
+}
+
+.ctl-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 78px;
+}
+
+.ctl-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ff375f;
+  box-shadow: 0 0 0 4px rgba(255, 55, 95, 0.18);
+  animation: ctl-pulse 1.6s ease-in-out infinite;
+}
+
+.ctl.is-paused .ctl-dot {
+  background: #ffba4a;
+  box-shadow: 0 0 0 4px rgba(255, 186, 74, 0.16);
+  animation: none;
+}
+
+@keyframes ctl-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.ctl-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.ctl-text b {
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ctl-text em {
+  font-size: 10px;
+  font-style: normal;
+  color: #8b93a7;
+  max-width: 92px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ctl-meters {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 34px;
+}
+
+.ctl-meter {
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.ctl-meter i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #38d39f, #6ee7ff);
+  transition: width 0.08s linear;
+}
+
+.ctl-meter.is-mic i {
+  background: linear-gradient(90deg, #ffb84a, #ff7a59);
+}
+
+.ctl-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.ctl-actions button {
+  font: inherit;
+  font-size: 12px;
+  padding: 7px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(130, 143, 170, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+  color: #e8edf6;
+  cursor: pointer;
+  transition: background 0.16s ease, border-color 0.16s ease;
+}
+
+.ctl-actions button:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.ctl-actions button.is-stop {
+  background: linear-gradient(135deg, #ff375f, #ff6b3d);
+  border-color: transparent;
+  font-weight: 600;
+}
+
+.ctl-actions button.is-icon {
+  padding: 7px 9px;
+}
